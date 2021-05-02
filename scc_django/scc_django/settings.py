@@ -37,11 +37,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Telling django I will use the installed bellow
+    'rest_framework',
+    'rest_framerwork.authtoken',
+    'corsheaders',
+    'djoser',
 ]
-
+# This is the front end address, live server for now
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080",
+    # https://stonecosmoscbd.com
+]
+# Configured by adding cors to run before common middleware; for django back end
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
